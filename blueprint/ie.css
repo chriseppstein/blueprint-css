@@ -1,22 +1,14 @@
-/* -----------------------------------------------------------------------
-
-   Blueprint CSS Framework 0.7.1
-   http://blueprintcss.googlecode.com
-
-   * Copyright (c) 2007-2008. See LICENSE for more info.
-   * See README for instructions on how to use Blueprint.
-   * For credits and origins, see AUTHORS.
-   * This is a compressed file. See the sources in the 'src' directory.
-
------------------------------------------------------------------------ */
-
-/* ie.css */
-body {text-align:center;}
-.container {text-align:left;}
-* html .column {overflow-x:hidden;}
-* html legend {margin:-18px -8px 16px 0;padding:0;}
-ol {margin-left:2em;}
-sup {vertical-align:text-top;}
-sub {vertical-align:text-bottom;}
-html>body p code {*white-space:normal;}
-hr {margin:-8px auto 11px;}
+/*****************************************************************************************************
+ * This file was generated from examples/default/stylesheets/ie.sass. Editing it is not recommended. *
+ * Instead modify examples/default/stylesheets/ie.sass and then run 'rake blueprint'                 *
+ * For help on editing sass files go to:                                                             *
+ *   http://haml.hamptoncatlin.com/docs/rdoc/classes/Sass.html                                       *
+ *****************************************************************************************************/
+body { text-align: center; }
+body .container { text-align: left; }
+* html body legend { margin: -18px -8px 16px 0; padding: 0; }
+body ol { margin-left: 2em; }
+body sup { vertical-align: text-top; }
+body sub { vertical-align: text-bottom; }
+html>body p code { *white-space: normal; }
+body hr { margin: -8px auto 11px; }

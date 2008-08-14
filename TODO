@@ -1,0 +1,7 @@
+This is a list of Tasks that have to get done before this branch is ready to become a candidate for merge to master.
+* Make the examples looks the same
+* allow easy customization of grid dimensions
+* Allow customization of all the parameters that used to be available in the .yml config file
+  - grid dimensions
+  - project path
+  - etc

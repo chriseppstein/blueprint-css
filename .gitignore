@@ -1,3 +1,7 @@
 *.svn
 *.DS_Store
 tmp/*
+built_examples/*
+tests/tmp
+tests/fixtures/*/saved
+tests/fixtures/*/tmp
