@@ -64,7 +64,7 @@
 =pull(!n)
   :float left
   :position relative
-  :margin-left = (!layout_grid_outer_width) * (2 - !n)
+  :margin-left = -!layout_grid_outer_width * !n
 
 // mixin to a column to push it n columns to the right
 =push(!n)
