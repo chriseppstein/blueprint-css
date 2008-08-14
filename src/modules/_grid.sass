@@ -40,10 +40,13 @@
   :margin
     :right 0
 
+=span(!n)
+  :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
+
 // Use this mixins to set the width of n columns.
 =column(!n, !last = false)
   :float left
-  :width = !layout_grid_width * !n + (!layout_grid_margin * (!n - 1))
+  +span(!n)
   @if !last
     +last
   @if !!last
@@ -118,7 +121,11 @@
     // Use these classes (or mixins) to set the width of a column.
     @for !n from 1 to !layout_grid_columns + 1
       .span-#{!n}
+        +span(!n)
+      div.span-#{!n}
         +column(!n, !n == !layout_grid_columns)
+        &.last
+          +last
     // Add these to a column to append empty cols.
     @for !n from 1 to !layout_grid_columns
       .append-#{!n}
