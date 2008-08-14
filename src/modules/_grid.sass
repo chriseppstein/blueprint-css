@@ -72,9 +72,9 @@
   :position relative
   :margin
     :top 0
-    :right = !layout_grid_outer_width * (1 - !n)
+    :right = -!layout_grid_outer_width * !n
     :bottom 1.5em
-    :left = !layout_grid_outer_width
+    :left = -!layout_grid_outer_width * !n
 
 // Border on right hand side of a column.
 =border
