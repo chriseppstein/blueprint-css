@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
-
-require 'blueprint/blueprint'
-require 'blueprint/validator'
+require File.join(File.dirname(__FILE__), 'blueprint', 'validator')
 
 # This script will validate the core Blueprint files. 
 # 

@@ -1,6 +1,10 @@
+require File.join(File.dirname(__FILE__), 'core_ext')
+require File.join(File.dirname(__FILE__), 'constants')
+
 module Blueprint
   # Validates generated CSS against the W3 using Java
   class Validator
+    VALIDATOR_FILE = File.join(File.dirname(__FILE__), 'validate', 'css-validator.jar')
     attr_reader :error_count
     
     def initialize
@@ -14,17 +18,23 @@ module Blueprint
     
       output_header
     
-      Blueprint::CSS_FILES.keys.each do |file_name|
-        css_output_path = File.join(Blueprint::BLUEPRINT_ROOT_PATH, file_name)
-        puts "\n\n  Testing #{css_output_path}"
-        puts "  Output ============================================================\n\n"
-        @error_count += 1 if !system("#{java_path} -jar '#{Blueprint::VALIDATOR_FILE}' -e '#{css_output_path}'")
+      Dir.new(Blueprint::Constants::BLUEPRINT_ROOT_PATH).each do |file_name|
+        puts "#{file_name}"
+        if file_name =~ /\.css$/
+          css_file = File.join(Blueprint::Constants::BLUEPRINT_ROOT_PATH, file_name)
+          @error_count += 1 if !validate_css_file(java_path, css_file)
+        end
       end
     
       output_footer
     end
     
     private
+    def validate_css_file(java_path, css_file)
+      puts "\n\n  Testing #{css_file}"
+      puts "  Output ============================================================\n\n"
+      system("#{java_path} -jar '#{VALIDATOR_FILE}' -e '#{css_file}'")
+    end
     
     def output_header
       puts "\n\n"

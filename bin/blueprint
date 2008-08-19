@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# The blueprint command line utility
+
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'blueprint'))
+require File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib', 'blueprint', 'exec'))
+
+command = Blueprint::Exec::Blueprint.new(ARGV)
+command.run!
