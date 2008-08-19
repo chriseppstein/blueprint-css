@@ -53,7 +53,8 @@ module Blueprint
         self.opts.parse!(self.args)    
         if ARGV.size > 0
           self.options[:project_name] = ARGV.shift
-        end    
+        end
+        self.options[:environment] ||= :production
       end
       
       def set_opts(opts)
@@ -70,6 +71,18 @@ Options:
 END
         opts.on('-u', '--update', :NONE, 'Update the current project') do
           self.options[:update] = true
+        end
+
+        opts.on('-f', '--force', :NONE, 'Force. Allows some commands to succeed when they would otherwise fail.') do
+          self.options[:force] = true
+        end
+
+        opts.on('-e ENV', '--environment ENV', [:development, :production], 'Select an output mode (development, production)') do |env|
+          self.options[:environment] = env
+        end
+
+        opts.on('--dry-run', :NONE, 'Dry Run. Tells you what it plans to do.') do
+          self.options[:dry_run] = true
         end
 
         opts.on('--trace', :NONE, 'Show a full traceback on error') do

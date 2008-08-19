@@ -1,12 +1,22 @@
 This is the SASS Port of Blueprint
 ----------------------------------------------------------------
 To install:
-git clone git://github.com/chriseppstein/haml.git
+git clone git://github.com/nex3/haml.git
 cd haml && rake install && cd -
 git clone git://github.com/chriseppstein/blueprint-css.git
+cd blueprint-css && git checkout sass && cd -
+
+To compile the examples:
 cd blueprint-css
 rake examples
 open built_examples
+
+To generate a project:
+blueprint-css/bin/blueprint myproject
+
+To update a project after editing a sass file:
+cd myproject
+blueprint-css/bin/blueprint -u
 
 To see what's left to be done (and find stuff you can contribute) read the TODO
 
