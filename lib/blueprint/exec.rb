@@ -21,7 +21,7 @@ module Blueprint
           perform!
         rescue Exception => e
           raise e if e.is_a? SystemExit
-          if e.is_a? ExecError
+          if e.is_a?(ExecError) || e.is_a?(OptionParser::ParseError)
             $stderr.puts e.message
           else
             $stderr.puts "#{e.class} on line #{get_line e} of #{get_file e}: #{e.message}"
