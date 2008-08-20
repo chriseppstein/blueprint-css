@@ -49,10 +49,11 @@ module Blueprint
         if !File.directory?(File.dirname(css_filename))
           directory basename(File.dirname(css_filename)), options.merge(:force => true) unless options[:dry_run]
         end
+        print_action :compile, basename(sass_filename)
         if File.exists?(css_filename)
           print_action :overwrite, basename(css_filename)
         else
-          print_action :compile, basename(css_filename)
+          print_action :create, basename(css_filename)
         end
         unless options[:dry_run]
           engine = ::Sass::Engine.new(open(sass_filename).read,
