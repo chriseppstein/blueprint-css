@@ -81,6 +81,10 @@ END
           self.options[:environment] = env
         end
 
+        opts.on('-s STYLE', '--output-style STYLE', [:nested, :expanded, :compact, :compressed], 'Select a CSS output mode (nested, expanded, compact, compressed)') do |style|
+          self.options[:style] = style
+        end
+
         opts.on('--dry-run', :NONE, 'Dry Run. Tells you what it plans to do.') do
           self.options[:dry_run] = true
         end
