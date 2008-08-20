@@ -77,7 +77,7 @@ END
           self.options[:force] = true
         end
 
-        opts.on('-e ENV', '--environment ENV', [:development, :production], 'Select an output mode (development, production)') do |env|
+        opts.on('-e ENV', '--environment ENV', [:development, :production], 'Use sensible defaults for your current environment (development, production)') do |env|
           self.options[:environment] = env
         end
 

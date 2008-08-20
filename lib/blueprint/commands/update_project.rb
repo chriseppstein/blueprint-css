@@ -70,7 +70,7 @@ module Blueprint
       
       def output_style
         @output_style ||= options[:style] || if options[:environment] == :development
-          :nested
+          :expanded
         else
           :compact
         end
