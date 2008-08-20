@@ -85,6 +85,10 @@ END
           self.options[:style] = style
         end
 
+        opts.on('-q', '--quiet', :NONE, 'Quiet mode.') do
+          self.options[:quiet] = true
+        end
+
         opts.on('--dry-run', :NONE, 'Dry Run. Tells you what it plans to do.') do
           self.options[:dry_run] = true
         end

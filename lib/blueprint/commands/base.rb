@@ -70,7 +70,7 @@ module Blueprint
       ACTIONS = [:directory, :exists, :remove, :create]
       MAX_ACTION_LENGTH = ACTIONS.inject(0){|memo, a| [memo, a.to_s.length].max}
       def print_action(action, extra)
-        puts "#{' ' * (MAX_ACTION_LENGTH - action.to_s.length)}#{action} #{extra}"
+        puts "#{' ' * (MAX_ACTION_LENGTH - action.to_s.length)}#{action} #{extra}" if !options[:quiet] || options[:dry_run]
       end
       
     end
